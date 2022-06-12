@@ -72,7 +72,47 @@ State의 마운트가 완전히 해제됐다.
 - Navigator : push, pop을 통해 스택구조로 화면을 쌓고 빼는 전환
 - Route : 라우팅으로 화면을 렌더링하는 경로 자체를 전환
 
-![첨부 이미지](https://jinia-img-bucket.s3.ap-northeast-2.amazonaws.com/8e606ecd-625a-43aa-9124-51d6544bfec6.png)
+## Provider 라이브러리를 통해 MVVM 아키텍처 구성하기
 
-![첨부 이미지](https://jinia-img-bucket.s3.ap-northeast-2.amazonaws.com/55e182c7-ef31-46b1-8892-8312235840c7.png)
+- 전역 상태관리해주는 Provider 라이브러리
 
+>  provider: ^5.0.0
+
+
+### e.g.
+
+class TodoListVM with ChangeNotifier{
+  late List<TodoViewModel> todos;
+
+  void fetch(){
+    final todoModels = [
+      Todo("Dummy", "DummyMemo", "DummyCategory", Colors.red.value, false,
+          2022612),
+      Todo("Dummy2", "DummyMemo", "DummyCategory", Colors.blue.value, true,
+          2022612),
+      Todo("Dummy3", "DummyMemo", "DummyCategory", Colors.green.value, false,
+          2022612),
+      Todo("Dummy4", "DummyMemo", "DummyCategory", Colors.amber.value, true,
+          2022612)
+    ];
+    todos = todoModels.map((todo) => TodoViewModel(todo)).toList();
+    notifyListeners();
+  }
+
+  void add(Todo todo){
+    var newTodoViewModel = TodoViewModel(todo);
+    todos.add(newTodoViewModel);
+    notifyListeners();
+  }
+}
+
+class TodoViewModel{
+  final Todo todo;
+
+  TodoViewModel(this.todo);
+}
+ 
+이런식으로 뷰모델만들고
+ 
+- 뷰가 구독하게한다음, 뷰모델에서 특정 행위시 notifyListeners() 를 통해 pub해서 뷰를 재랜더링하도록 하면 될듯?
+ 
