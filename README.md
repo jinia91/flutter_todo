@@ -1,16 +1,5 @@
 # todo_app
 
-A new Flutter project.
+![첨부 이미지](https://jinia-img-bucket.s3.ap-northeast-2.amazonaws.com/8e606ecd-625a-43aa-9124-51d6544bfec6.png)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![첨부 이미지](https://jinia-img-bucket.s3.ap-northeast-2.amazonaws.com/55e182c7-ef31-46b1-8892-8312235840c7.png)
