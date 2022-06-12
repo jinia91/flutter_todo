@@ -23,35 +23,45 @@
 #### LifeCycle
 
 1. createState()
+
 State 객체가 최초로 생성되는 시점 BuildContext가 State에 할당된다.
 
 2. mounted == true
+
 BuildContext가 State에 할당됐는지 확인한다.
 할당됐으면 State가 마운트된 것으로 보고 true를 반환한다.
 
 3. initState()
+ 
 이 Lifecycle때 Widget 혹은 BuildContext 초기화하면 된다.
 
 4. didChangeDependencies()
+
 상속한 Widget이 업데이트될때 호출된다.
 
 5. build()
+
 Widget을 리턴하며 이를 바탕으로 Framework가 UI를 그린다.
 
 6. didUpdateWidget()
+
 Widget에 변경이 있을때 호출된다.
 
 7. setState()
+
 위에서도 봤던 함수로 프레임워크에 변경사항을 알린다.
 
 8. deactivatie()
+
 State 객체가 삭제된다.
 삭제되는 애니메이션 프레임이 끝나기 전에 재사용이 가능하다.
 
 9. dispose()
+
 State 객체가 트리에서 영구적으로 삭제된다.
 
 10. mounted == false
+
 State의 마운트가 완전히 해제됐다.
 
 [state doc](https://api.flutter.dev/flutter/widgets/State-class.html)
