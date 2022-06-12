@@ -1,7 +1,9 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/TodoCardWidget.dart';
 import 'package:todo_app/DateParseHepler.dart';
 import 'package:todo_app/write/TodoWritePage.dart';
+
 
 import 'Todo.dart';
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Todo App',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.grey,
       ),
       home: const MyHomePage(title: 'Todo App Home'),
     );
@@ -80,22 +82,22 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  BottomNavigationBar buildBottomNavigationBar() {
-    return BottomNavigationBar(
-      items: [
-        BottomNavigationBarItem(
-            icon: Icon(Icons.today_outlined), label: "Today"),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.assignment_outlined), label: "기록"),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.more_horiz_outlined), label: "더보기"),
+  CurvedNavigationBar buildBottomNavigationBar() {
+    return CurvedNavigationBar(
+      items: <Widget>[
+            Icon(Icons.today_outlined),
+            Icon(Icons.assignment_outlined),
+            Icon(Icons.more_horiz_outlined),
       ],
-      currentIndex: currentTabIndex,
       onTap: (idx) {
         setState(() {
           currentTabIndex = idx;
         });
       },
+        color: Colors.grey,
+        backgroundColor: Colors.white70,
+      animationDuration: Duration(milliseconds: 300),
+        animationCurve: Curves.easeOut
     );
   }
 
