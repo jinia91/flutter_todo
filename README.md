@@ -81,36 +81,36 @@ State의 마운트가 완전히 해제됐다.
 
 ### e.g.
 
-class TodoListVM with ChangeNotifier{
-  late List<TodoViewModel> todos;
+      class TodoListVM with ChangeNotifier{
+        late List<TodoViewModel> todos;
 
-  void fetch(){
-    final todoModels = [
-      Todo("Dummy", "DummyMemo", "DummyCategory", Colors.red.value, false,
-          2022612),
-      Todo("Dummy2", "DummyMemo", "DummyCategory", Colors.blue.value, true,
-          2022612),
-      Todo("Dummy3", "DummyMemo", "DummyCategory", Colors.green.value, false,
-          2022612),
-      Todo("Dummy4", "DummyMemo", "DummyCategory", Colors.amber.value, true,
-          2022612)
-    ];
-    todos = todoModels.map((todo) => TodoViewModel(todo)).toList();
-    notifyListeners();
-  }
+        void fetch(){
+          final todoModels = [
+            Todo("Dummy", "DummyMemo", "DummyCategory", Colors.red.value, false,
+                2022612),
+            Todo("Dummy2", "DummyMemo", "DummyCategory", Colors.blue.value, true,
+                2022612),
+            Todo("Dummy3", "DummyMemo", "DummyCategory", Colors.green.value, false,
+                2022612),
+            Todo("Dummy4", "DummyMemo", "DummyCategory", Colors.amber.value, true,
+                2022612)
+          ];
+          todos = todoModels.map((todo) => TodoViewModel(todo)).toList();
+          notifyListeners();
+        }
 
-  void add(Todo todo){
-    var newTodoViewModel = TodoViewModel(todo);
-    todos.add(newTodoViewModel);
-    notifyListeners();
-  }
-}
+        void add(Todo todo){
+          var newTodoViewModel = TodoViewModel(todo);
+          todos.add(newTodoViewModel);
+          notifyListeners();
+        }
+      }
 
-class TodoViewModel{
-  final Todo todo;
+      class TodoViewModel{
+        final Todo todo;
 
-  TodoViewModel(this.todo);
-}
+        TodoViewModel(this.todo);
+      }
  
 이런식으로 뷰모델만들고
  
